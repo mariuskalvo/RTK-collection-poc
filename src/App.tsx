@@ -1,24 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { IStreamableItem } from "./Types/IStreamableItem";
+import StreamingRow from "./Components/StreamingRow";
+import { Button, Table } from "@dnb/eufemia";
+
+const rows: IStreamableItem[] = [
+  {
+    name: "0",
+    percentage: 54.3,
+    value: 1323.21,
+  },
+  {
+    name: "1",
+    percentage: 54.3,
+    value: 1323.21,
+  },
+  {
+    name: "2",
+    percentage: 54.3,
+    value: 1323.21,
+  },
+  {
+    name: "3",
+    percentage: 54.3,
+    value: 1323.21,
+  },
+  {
+    name: "4",
+    percentage: 54.3,
+    value: 1323.21,
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: "60rem", margin: "2rem auto" }}>
+      <Table className="dnb-table">
+        <caption>RTK Streaming POC</caption>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>% Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <StreamingRow item={row} />
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 }
