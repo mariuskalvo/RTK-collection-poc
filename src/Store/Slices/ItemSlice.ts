@@ -31,10 +31,15 @@ export const rows: IStreamableItem[] = [
 
 export interface ItemsState {
   data: IStreamableItem[],
+  objData: { [name: string]: IStreamableItem }
 }
 
 const initialState: ItemsState = {
-  data: rows
+  data: rows,
+  objData: rows.reduce((acc, val) => ({
+    ...acc,
+    [val.name]: val,
+  }), {})
 }
 
 const randomNumber = (min: number, max: number) =>
@@ -47,13 +52,14 @@ export const itemSlice = createSlice({
     updateItem: (state, action: PayloadAction<IStreamableItem>) => {
       const itemIndex = state.data.findIndex((item) => item.name === action.payload.name);
       state.data[itemIndex] = action.payload;
+      state.objData[action.payload.name] = action.payload;
     },
-    updateItems: (state, action: PayloadAction<IStreamableItem[]>) => {
+    setItems: (state, action: PayloadAction<IStreamableItem[]>) => {
       state.data = action.payload;
     },
  
   },
 })
 
-export const { updateItem } = itemSlice.actions
+export const { updateItem, setItems } = itemSlice.actions
 export default itemSlice.reducer
