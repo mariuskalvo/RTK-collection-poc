@@ -35,7 +35,6 @@ export default () => {
 
   return (
     <Table className="dnb-table .dnb-table--fixed">
-      <caption>RTK Streaming POC</caption>
       <thead>
         <tr>
           <th>Name</th>
