@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+import FakeStreamSlice from './Slices/FakeStreamSlice'
 import ItemSlice from './Slices/ItemSlice'
 
 export const store = configureStore({
   reducer: {
-    items: ItemSlice
+    items: ItemSlice,
+    streamState: FakeStreamSlice
   },
 })
 
