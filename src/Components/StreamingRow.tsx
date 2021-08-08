@@ -8,7 +8,7 @@ export default ({ item }: { item: IStreamableItem }) => (
         <b>{item.name}</b>
       </p>
     </td>
-    <td>{item.value}</td>
-    <td>{item.percentage}</td>
+    <td>{item.value.toFixed(2)}</td>
+    <td>{item.percentage.toFixed(2)}</td>
   </tr>
 );
