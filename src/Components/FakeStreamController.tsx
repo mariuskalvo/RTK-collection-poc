@@ -9,13 +9,13 @@ interface ComponentState {
   numItems: number;
 }
 
-export default () => {
+const FakeStreamController = () => {
   const streamState = useSelector((state: RootState) => state.streamState);
   const dispatch = useDispatch();
 
   const [internalState, setInternalState] = useState<ComponentState>({
-    numItems: 10,
-    updateInterval: 500,
+    numItems: streamState.numItems,
+    updateInterval: streamState.updateIntervalMs,
   });
 
   const updateValues = () => {
@@ -79,3 +79,5 @@ export default () => {
     </div>
   );
 };
+
+export default FakeStreamController;

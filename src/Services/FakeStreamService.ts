@@ -1,4 +1,4 @@
-import { IStreamableItem } from "../Types/IStreamableItem";
+import IStreamableItem from "../Types/IStreamableItem";
 import { randomNumber } from "../Utils/random";
 
 const onItemUpdatedCallbacks: ((item: IStreamableItem) => void)[] = [];

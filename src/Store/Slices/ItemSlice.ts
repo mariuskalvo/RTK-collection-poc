@@ -1,28 +1,27 @@
-import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IStreamableItem } from '../../Types/IStreamableItem'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import IStreamableItem from '../../Types/IStreamableItem'
 
 export interface ItemsState {
-  objData: { [name: string]: IStreamableItem }
+  data: { [name: string]: IStreamableItem }
 }
 
 const initialState: ItemsState = {
-  objData: {}
+  data: {}
 }
+
 export const itemSlice = createSlice({
   name: 'items',
   initialState,
   reducers: {
     updateItem: (state, action: PayloadAction<IStreamableItem>) => {
-      state.objData[action.payload.name] = action.payload;
+      state.data[action.payload.name] = action.payload;
     },
     setItems: (state, action: PayloadAction<IStreamableItem[]>) => {
-      
-      state.objData = action.payload.reduce((acc, val) => ({
+      state.data = action.payload.reduce((acc, val) => ({
         ...acc,
         [val.name]: val,
       }), {})
     },
-
   },
 })
 

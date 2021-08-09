@@ -1,15 +1,11 @@
-import { Section } from "@dnb/eufemia";
 import { useSelector } from "react-redux";
 import { RootState } from "../Store/Store";
-import { IStreamableItem } from "../Types/IStreamableItem";
+import IStreamableItem from "../Types/IStreamableItem";
 
-export default ({ item }: { item: IStreamableItem }) => {
-  const itemFromState = useSelector((state: RootState) => state.items.objData[item.name]);
-
-  if (!itemFromState) {
-    return <tr></tr>
-  }
-
+const StreamingRow = ({ item }: { item: IStreamableItem }) => {
+  const itemFromState = useSelector(
+    (state: RootState) => state.items.data[item.name]
+  );
   return (
     <tr>
       <td>
@@ -22,3 +18,5 @@ export default ({ item }: { item: IStreamableItem }) => {
     </tr>
   );
 };
+
+export default StreamingRow;

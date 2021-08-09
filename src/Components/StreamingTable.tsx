@@ -8,10 +8,10 @@ import {
 import { getItems } from "../Services/ItemService";
 import { updateItem, setItems } from "../Store/Slices/ItemSlice";
 import { RootState } from "../Store/Store";
-import { IStreamableItem } from "../Types/IStreamableItem";
+import IStreamableItem from "../Types/IStreamableItem";
 import StreamingRow from "./StreamingRow";
 
-export default () => {
+const StreamingTable = () => {
   const dispatch = useDispatch();
   const streamState = useSelector((state: RootState) => state.streamState);
   const [initialItems, setInitialItems] = useState<IStreamableItem[]>([]);
@@ -31,6 +31,7 @@ export default () => {
     return () => {
       clearInterval(intervalId);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -50,3 +51,5 @@ export default () => {
     </Table>
   );
 };
+
+export default StreamingTable;

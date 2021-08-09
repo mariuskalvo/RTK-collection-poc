@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IStreamableItem } from '../../Types/IStreamableItem'
 
 export interface StreamState {
   numItems: number,

@@ -1,4 +1,4 @@
-import { IStreamableItem } from "../Types/IStreamableItem";
+import IStreamableItem from "../Types/IStreamableItem";
 
 const generateItems = (numItems: number): IStreamableItem[] => {
   return new Array(numItems).fill(0).map((i, index) => ({
