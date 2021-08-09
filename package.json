@@ -2,6 +2,7 @@
   "name": "streaming-poc",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mariuskalvo.github.io/RTK-collection-poc/",
   "dependencies": {
     "@dnb/eufemia": "^9.9.4",
     "@reduxjs/toolkit": "^1.6.1",
